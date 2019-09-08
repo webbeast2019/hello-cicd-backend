@@ -15,10 +15,10 @@ if (process.env.NODE_ENV !== 'production') {
 
 const corsOptions = {
     origin: function (origin, callback) {
-        if (whitelist.indexOf(origin) !== -1) {
+        if (whitelist.indexOf(origin) !== -1 || !origin) {
             callback(null, true)
         } else {
-            callback(new Error('Not allowed by CORS'))
+            callback(new Error(origin + ' Not allowed by CORS'));
         }
     }
 };
