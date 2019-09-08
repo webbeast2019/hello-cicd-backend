@@ -4,7 +4,10 @@ const cors = require('cors');
 const app = express();
 // app.use(cors());
 // see: https://expressjs.com/en/resources/middleware/cors.html
-const whitelist = ['https://my-quotes-prod.com', 'https://my-quotes-stage.com'];
+const whitelist = [
+    'https://quotes-server-stage.herokuapp.com',
+    'https://quotes-server-prod.herokuapp.com'
+];
 if (process.env.NODE_ENV !== 'production') {
     // allow localhost for dev
     whitelist.push('http://localhost:3000');
