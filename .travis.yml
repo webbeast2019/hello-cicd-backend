@@ -14,3 +14,5 @@ deploy:
   app: quotes-server-stage
   on:
     repo: webbeast2019/hello-cicd-backend
+    tags: true
+    all_branches: true
