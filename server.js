@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const quotes = require('./quotes.service');
+
 // app.use(cors());
 // see: https://expressjs.com/en/resources/middleware/cors.html
 const whitelist = [
@@ -16,18 +18,12 @@ if (process.env.NODE_ENV !== 'production') {
 const corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1 || !origin) {
-            callback(null, true)
+            callback(null, true);
         } else {
-            callback(new Error('Not allowed by CORS'))
+            callback(new Error('Not allowed by CORS'));
         }
     }
 };
-
-const quotes = [
-    {body: 'There is nothing permanent except change', source: 'Heraclitus'},
-    {body: 'Learning never exhausts the mind', source: 'Leonardo da Vinci'},
-    {body: 'It is better to travel well than to arrive', source: 'Gautama Buddha'}
-];
 
 // log middleware
 app.use(function (req, res, next) {
@@ -40,8 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // get quote
 app.get('/quote', cors(corsOptions), (req, res) => {
-    const index = Math.floor(Math.random() * quotes.length);
-    res.json(quotes[index]);
+    const quote = quotes.getRandomQuote();
+    res.json(quote);
 });
 
 // index file
