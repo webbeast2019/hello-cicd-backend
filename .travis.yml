@@ -1,19 +1,14 @@
 language: node_js
-
 node_js:
-  - '10'
-
-branches:
-  only:
-    - master
-
+- '10'
 install: npm install
-
 script:
-  - npm run test
-
+- npm run test
 deploy:
   provider: heroku
-  app: quotes-server-stage
   api_key:
-    secure: qj6Ut+wL8eBd0C0eaiacaVMoPZvLIscUqDAq1Cf7p+zecXRidFUWfEljPNCfFCGDwWHcaGvLPlDzc4SqFZKS/Jp4MLzst3HrvdJAmW0QkE+4bwvIPyoBQgySz9Nus93LMtB51PMisMWkOOI24PmlO5OWng2eg3RCExaNRek9WGb2i+EAddFOFXzqzFebH6tCn5J5cNcYXeRzw1XtMDNw2yVwuaI0Hz42XCLpFJQo3X3o6klh3JquZF/mN9mH9fqFfob9CBJ5uaXgs+awHXn/Zagysudg0rksHFZVxtnnapB/3mzwcH6647P5LKI/5kwtHR6NSFSRzHEBplpR5Ctc+LXewoJ9I6I7rlRNJgfR5C3K6HBqZdSEJRBDWdEHQamvK/yXheQNMNgmU1J49QABZo7hbHAq9InVHANvunzBpEPLWrScjr9rCi0GOVdpSKn6J0snVGfK27dPRsrF4RwViYeSYoDBeW0Iaim4AEjzIoJ0OMWQEzg4h5HAK2ciLp8WZqfnmFJpTOiyRiGsxIw86X1Q/JjMHX8XcAS/4sjy8YV5IIfZqRqIO7RpbbmAeXXALjeQdZkOkeMWACXjvBbkpeGZXXBgrhztTG5ka9+pA1p4zaGY0KkuzNxtUgdDB8QoJEBQ3E1OptH+ifzydZILTXNfBkncIJNsykj3y/jxaJE=
+    secure: IksydwQPiFRKgqWSHGWr46NlnwYIy202QK+MSOpge2tW89w4fSgPqygHtIC1oPm7D8L7NypLGz6tcFPPOfM+BxvIOATp8lvRUU390SoKIVZ8+1+6NsjtVmtD7Q+zzVlTqvd+nm3E5VocSPsN4AHXBeDMl0yqdvTw0mr43FIl3zlb6OEhkqjyyxFIYHmQLiw9K+gkmedn3MQj5BLy/6TonmS9bZob/ECULYBUN2d0hQD473iX+DuRdc4TdxDF0jqY8RDi4cvLgzzc25k6/23YCfhrTZO16uXJtpEJoOuhGOR4HTB3qk31TokDapcWcFXAahHAKkf2iBUZSlp4CYlLfigPEGwTUWb5qpjOfp/MKO92MAkPvBAdGId8dFlk/Zho8o27OSiWd9hBNfZYtCVvtYubdyAKs2Dy1+1TrdpXMNYllNuCid4WZ23k/S0+qcgUgI7CKTMhFztCzfn/t4wgnDbL4QyVHMN96SUI5plmlI3gERF7hdIV1SdMdsHOwIcuV4CvbitP0ZVYIu79P/n6wqbKGUO3ofQPArZizoWK9VVuw3Ebhl70sNGZhEhT95Ad5LRQFrZImUdiDlTe5hprUakpu691q0uo0Z+C9jYykBahgCTopIuJRizQRhAFO4mrzYFDQhhQtfcA7T3jtQhcajAj4YWWJGn0qIxct2REFd8=
+  app: quotes-server-stage
+  on:
+    repo: webbeast2019/hello-cicd-backend
+    branch: master
