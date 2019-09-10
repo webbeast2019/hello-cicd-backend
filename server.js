@@ -2,7 +2,8 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const app = express();
-// app.use(cors());
+const quotesService = require('./quotes.service');
+
 // see: https://expressjs.com/en/resources/middleware/cors.html
 const whitelist = [
     'https://quotes-server-stage.herokuapp.com',
@@ -23,12 +24,6 @@ const corsOptions = {
     }
 };
 
-const quotes = [
-    {body: 'There is nothing permanent except change', source: 'Heraclitus'},
-    {body: 'Learning never exhausts the mind', source: 'Leonardo da Vinci'},
-    {body: 'It is better to travel well than to arrive', source: 'Gautama Buddha'}
-];
-
 // log middleware
 app.use(function (req, res, next) {
     console.log(`request url: ${req.url}`);
@@ -40,8 +35,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // get quote
 app.get('/quote', cors(corsOptions), (req, res) => {
-    const index = Math.floor(Math.random() * quotes.length);
-    res.json(quotes[index]);
+    const quote = quotesService.getRandomQuote();
+    res.json(quote);
 });
 
 // index file
