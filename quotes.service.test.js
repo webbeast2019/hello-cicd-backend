@@ -10,7 +10,6 @@ test('getRandomQuote should return a quote with body and source', () => {
     expect(typeof quote.source).toMatch('string');
 });
 
-
 test('getRandomQuote should return a quote with body length greater than 9', () => {
     const quote = quotesService.getRandomQuote();
 
